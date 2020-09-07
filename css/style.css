@@ -181,6 +181,13 @@ a:hover,
 .alignright {
   float: right;
 }
+.box{
+    float:left;
+    margin-right:20px;
+}
+.clear{
+    clear:both;
+}
 .clearfix {
   *zoom: 1;
 }
