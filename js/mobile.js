@@ -4,16 +4,11 @@ define([], function(){
 
 	var ctn,radio,scaleW,idx,basicwrap;
 
-	//第一步 -- 初始化
 	var reset = function() {
-		//设定窗口比率
 		radio = document.body.scrollHeight/document.body.scrollWidth;
-		//设定一页的宽度
 		scaleW = document.body.scrollWidth;
-		//设定初始的索引值
 		idx = 0;
 	};
-	//第一步 -- 组合
 	var combine = function(){
 		if($tag){
 			document.getElementById("js-mobile-tagcloud").innerHTML = $tag.innerHTML;
@@ -25,9 +20,7 @@ define([], function(){
 			document.getElementById("js-mobile-friends").innerHTML = $friends.innerHTML;
 		}
 	}
-	//第三步 -- 根据数据渲染DOM
 	var renderDOM = function(){
-		//生成节点
 		var $viewer = document.createElement("div");
 		$viewer.id = "viewer";
 		$viewer.className = "hide";
@@ -45,7 +38,6 @@ define([], function(){
 		<div class="viewer-box-r"></div>\
 		</div>';
 
-		//主要图片节点
 		document.getElementsByTagName("body")[0].appendChild($viewer);
 		var wrap = document.getElementById("viewer-box");
 		basicwrap = wrap;
@@ -73,11 +65,8 @@ define([], function(){
 		}
 	}
 
-	//第四步 -- 绑定 DOM 事件
 	var bindDOM = function(){
 		var scaleW = scaleW;
-		
-		//滑动隐藏
 		document.getElementById("viewer-box").addEventListener("webkitTransitionEnd", function(){
 
 			if(_isShow == false){
@@ -88,7 +77,6 @@ define([], function(){
 			
 		}, false);
 
-		//点击展示和隐藏
 		ctn.addEventListener("touchend", function(){
 			show();
 		}, false);
@@ -108,7 +96,6 @@ define([], function(){
 			touchEndTime = 0;
 		}, false);
 
-		//滚动样式
 		var $overlay = $("#mobile-nav .overlay");
 		var $header = $(".js-mobile-header");
 		window.onscroll = function(){
@@ -141,9 +128,7 @@ define([], function(){
 
 	return{
 		init: function(){
-			//构造函数需要的参数
 			ctn = document.getElementsByClassName("slider-trigger")[0];
-			//构造四步
 			reset();
 			renderDOM();
 			combine();

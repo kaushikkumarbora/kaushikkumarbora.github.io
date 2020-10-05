@@ -141,17 +141,17 @@ require([], function (){
 	    versions:function(){
 	    var u = window.navigator.userAgent;
 	    return {
-	        trident: u.indexOf('Trident') > -1, //IE内核
-	        presto: u.indexOf('Presto') > -1, //opera内核
-	        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-	        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-	        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-	        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-	        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-	        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-	        iPad: u.indexOf('iPad') > -1, //是否为iPad
-	        webApp: u.indexOf('Safari') == -1 ,//是否为web应用程序，没有头部与底部
-	        weixin: u.indexOf('MicroMessenger') == -1 //是否为微信浏览器
+	        trident: u.indexOf('Trident') > -1, //IE
+	        presto: u.indexOf('Presto') > -1, //opera
+	        webKit: u.indexOf('AppleWebKit') > -1, //applewebkit
+	        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, 
+	        mobile: !!u.match(/AppleWebKit.*Mobile.*/), 
+	        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios
+	        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android
+	        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, 
+	        iPad: u.indexOf('iPad') > -1, //iPad
+	        webApp: u.indexOf('Safari') == -1 ,
+	        weixin: u.indexOf('MicroMessenger') == -1
 	        };
 	    }()
 	}
@@ -175,7 +175,6 @@ require([], function (){
 		loadPC();
 	}
 
-	//是否使用fancybox
 	if(yiliaConfig.fancybox === true){
 		require(['/fancybox/jquery.fancybox.js'], function(pc){
 			var isFancy = $(".isFancy");
@@ -191,11 +190,9 @@ require([], function (){
 		});
 
 	}
-	//是否开启动画
 	if(yiliaConfig.animate === true){
 
 		require(['/js/jquery.lazyload.js'], function(){
-			//avatar
 			$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
 			$(".js-avatar")[0].onload = function(){
 				$(".profilepic").addClass("show");
@@ -203,7 +200,6 @@ require([], function (){
 		});
 
 		if(yiliaConfig.isHome === true){
-			//content
 			function showArticle(){
 				$(".article").each(function(){
 					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
@@ -224,7 +220,6 @@ require([], function (){
 
 	}
 
-	//是否新窗口打开链接
 	if(yiliaConfig.open_in_new == true){
 		$(".article a[href]").attr("target", "_blank")
 	}
