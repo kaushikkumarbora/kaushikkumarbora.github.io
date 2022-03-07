@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Meh",
+  "author": "Kaushik Kumar Bora",
+  "license": "ISC",
+  "dependencies": {
+    "hexo-deployer-git": "2.1.0"
+  }
+}
